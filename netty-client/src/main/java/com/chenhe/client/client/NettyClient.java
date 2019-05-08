@@ -12,7 +12,7 @@ import java.nio.charset.Charset;
 /**
  * @author chenhe
  * @date 2019-05-07 15:32
- * @desc
+ * @desc 建立与服务端的连接
  */
 public final class NettyClient {
 

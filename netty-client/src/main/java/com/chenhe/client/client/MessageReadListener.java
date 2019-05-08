@@ -16,7 +16,7 @@ import java.util.Set;
 /**
  * @author chenhe
  * @date 2019-05-07 17:36
- * @desc
+ * @desc 负责接收消息
  */
 public class MessageReadListener implements Runnable {
 

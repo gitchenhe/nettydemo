@@ -12,7 +12,7 @@ import java.util.Scanner;
 /**
  * Hello world!
  */
-public class App {
+public class ClientApp {
     public static void main(String[] args) {
         SocketChannel socketChannel = NettyClient.init("localhost", 1234);
 
@@ -33,7 +33,7 @@ public class App {
             String to = scanner.nextLine();
             System.out.println("请输入消息");
             String msg = scanner.nextLine();
-             messageData = new MessageData();
+            messageData = new MessageData();
             messageData.setFrom(id);
             messageData.setTo(to);
             messageData.setMessageType(MessageTypeEnum.GENERAL);

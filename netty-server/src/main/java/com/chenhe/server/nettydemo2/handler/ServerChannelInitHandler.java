@@ -21,7 +21,7 @@ public class ServerChannelInitHandler extends ChannelInitializer {
     @Override
     protected void initChannel(Channel ch) throws Exception {
         ChannelPipeline pipeline = ch.pipeline();
-        pipeline.addLast(new DefaultByteToMessageDecoder(2048));
-        pipeline.addLast(new MessageToObjectDecoder());
+        pipeline.addLast("decoder",new DefaultByteToMessageDecoder(2048));
+        pipeline.addLast("resultHandler",new MessageToObjectDecoder());
     }
 }

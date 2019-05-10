@@ -2,9 +2,8 @@ package com.chenhe.netty2demo.codec;
 
 import com.chenhe.netty2demo.entity.ConstantValue;
 import com.chenhe.netty2demo.entity.Message;
-import com.chenhe.util.HessianSerializerUtil;
 import io.netty.channel.ChannelHandlerContext;
-import io.netty.handler.codec.MessageToMessageEncoder;
+import io.netty.handler.codec.MessageToMessageDecoder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,15 +14,13 @@ import java.util.List;
  * @date 2019-05-10 11:15
  * @desc
  */
-public class MessageToObjectDecoder extends MessageToMessageEncoder<Message> {
+public class MessageToObjectDecoder extends MessageToMessageDecoder<Message> {
 
     Logger logger = LoggerFactory.getLogger(MessageToObjectDecoder.class);
 
 
     @Override
-    protected void encode(ChannelHandlerContext channelHandlerContext, Message message, List<Object> list) throws Exception {
-
-
+    protected void decode(ChannelHandlerContext channelHandlerContext, Message message, List<Object> list) throws Exception {
         //验证请求版本
         if (message == null) {
             return;
@@ -38,11 +35,6 @@ public class MessageToObjectDecoder extends MessageToMessageEncoder<Message> {
             logger.error("消息不完整,标记长度:{},实际长度:{}", message.getLength(), message.getContent().length);
             throw new RuntimeException("消息不完整");
         }
-
-        try {
-            list.add(HessianSerializerUtil.deserialize(message.getContent()));
-        } catch (Exception e) {
-            throw e;
-        }
+        logger.info("收到消息:{}", message);
     }
 }

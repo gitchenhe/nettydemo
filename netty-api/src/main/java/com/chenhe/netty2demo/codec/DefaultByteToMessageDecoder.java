@@ -3,7 +3,6 @@ package com.chenhe.netty2demo.codec;
 import com.chenhe.netty2demo.entity.ConstantValue;
 import com.chenhe.netty2demo.entity.Message;
 import com.chenhe.util.HessianSerializerUtil;
-import com.chenhe.util.KryoSerializerUtil;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
@@ -83,11 +82,13 @@ public class DefaultByteToMessageDecoder extends ByteToMessageDecoder {
         Message message = HessianSerializerUtil.deserialize(bytes);
 
         logger.info("接受到消息:{}", message);
-        //list.add(message);
+        list.add(message);
     }
 
     public static void main(String[] args) {
-        ByteBuf byteBuf = Unpooled.buffer(1024);
+        System.out.println(Runtime.getRuntime().freeMemory());
+        ByteBuf byteBuf = Unpooled.buffer(381786527);
+        System.out.println(Runtime.getRuntime().freeMemory());
         Unpooled.directBuffer();
         byteBuf.writeInt(2);
         byteBuf.writeInt(3);
@@ -100,6 +101,5 @@ public class DefaultByteToMessageDecoder extends ByteToMessageDecoder {
         logger.info("读int后,消息可读字节:{}", byteBuf.readableBytes());
         byteBuf.resetReaderIndex();
         logger.info("重置读取位后,可读字节:{}", byteBuf.readableBytes());
-
     }
 }

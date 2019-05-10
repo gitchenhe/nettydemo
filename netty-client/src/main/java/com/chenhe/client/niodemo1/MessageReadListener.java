@@ -1,4 +1,4 @@
-package com.chenhe.client.client;
+package com.chenhe.client.niodemo1;
 
 import com.chenhe.entity.MessageData;
 import com.google.gson.Gson;

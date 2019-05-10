@@ -1,4 +1,4 @@
-package com.chenhe.server.worker;
+package com.chenhe.server.niodemo1.worker;
 
 import com.chenhe.entity.MessageData;
 import com.chenhe.entity.MessageTypeEnum;

@@ -1,7 +1,7 @@
-package com.chenhe.server;
+package com.chenhe.server.niodemo1;
 
-import com.chenhe.server.worker.ClientAcceptListener;
-import com.chenhe.server.worker.ClientReadListener;
+import com.chenhe.server.niodemo1.worker.ClientAcceptListener;
+import com.chenhe.server.niodemo1.worker.ClientReadListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -18,9 +18,9 @@ import java.util.concurrent.ConcurrentHashMap;
  * @date 2019-05-07 16:04
  * @desc
  */
-public class NettyServer {
+public class Server {
 
-    static Logger logger = LoggerFactory.getLogger(NettyServer.class);
+    static Logger logger = LoggerFactory.getLogger(Server.class);
 
     static Selector serverSelector, clientSelector;
 

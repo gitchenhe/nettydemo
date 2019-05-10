@@ -1,7 +1,5 @@
-package com.chenhe.client;
+package com.chenhe.client.niodemo1;
 
-import com.chenhe.client.client.MessageReadListener;
-import com.chenhe.client.client.NettyClient;
 import com.chenhe.entity.MessageData;
 import com.chenhe.entity.MessageTypeEnum;
 import com.google.gson.Gson;

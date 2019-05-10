@@ -1,4 +1,4 @@
-package com.chenhe.client.client;
+package com.chenhe.client.niodemo1;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

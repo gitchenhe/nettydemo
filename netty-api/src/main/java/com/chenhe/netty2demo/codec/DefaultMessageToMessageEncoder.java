@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * @author chenhe
  * @date 2019-05-10 11:05
- * @desc 对象转移成二进制
+ * @desc 消息对象转移成二进制
  */
 public class DefaultMessageToMessageEncoder extends MessageToMessageEncoder<Message> {
 

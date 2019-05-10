@@ -1,20 +1,22 @@
 package com.chenhe.client.nettydemo2;
 
+import com.chenhe.entity.MessageData;
+import com.chenhe.entity.MessageTypeEnum;
 import com.chenhe.netty2demo.codec.DefaultMessageToMessageEncoder;
 import com.chenhe.netty2demo.codec.ObjectToMessageEncoder;
 import com.chenhe.netty2demo.entity.ConstantValue;
 import com.chenhe.netty2demo.entity.Message;
 import com.chenhe.util.HessianSerializerUtil;
 import io.netty.bootstrap.Bootstrap;
-import io.netty.buffer.ByteBuf;
-import io.netty.channel.*;
+import io.netty.channel.Channel;
+import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelInitializer;
+import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
-import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 
-import java.awt.*;
+import java.io.Serializable;
 import java.net.InetSocketAddress;
-import java.nio.charset.Charset;
 import java.util.Scanner;
 
 /**
@@ -22,7 +24,7 @@ import java.util.Scanner;
  * @date 2019-05-10 11:40
  * @desc
  */
-public class Netty2Client {
+public class Netty2Client implements Serializable {
     public static void main(String[] args) throws InterruptedException {
         EventLoopGroup eventLoopGroup = new NioEventLoopGroup();
 
@@ -56,7 +58,13 @@ public class Netty2Client {
             }
             byte[] bytes = HessianSerializerUtil.serialize(text);
             Message message = new Message(ConstantValue.HEAD_TAG,1,ConstantValue.VERSION,bytes.length,bytes);
-            channel.writeAndFlush(message);
+            MessageData messageData = new MessageData();
+            messageData.setFrom("陈贺");
+            messageData.setTo("张三");
+            messageData.setMessage("测试消息");
+            messageData.setMessageType(MessageTypeEnum.GENERAL);
+
+            channel.writeAndFlush(new Netty2Client());
         }
     }
 

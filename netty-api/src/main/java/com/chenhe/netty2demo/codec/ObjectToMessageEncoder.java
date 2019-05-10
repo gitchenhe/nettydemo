@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * @author chenhe
  * @date 2019-05-10 11:09
- * @desc
+ * @desc 将对象封装成消息对象
  */
 public class ObjectToMessageEncoder extends MessageToMessageEncoder<Object> {
 
@@ -35,5 +35,8 @@ public class ObjectToMessageEncoder extends MessageToMessageEncoder<Object> {
         }
     }
 
-
+    @Override
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+        cause.printStackTrace();
+    }
 }

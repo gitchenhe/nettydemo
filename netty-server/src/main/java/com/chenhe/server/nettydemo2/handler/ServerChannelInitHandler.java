@@ -5,8 +5,6 @@ import com.chenhe.netty2demo.codec.MessageToObjectDecoder;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * @author chenhe
@@ -14,9 +12,6 @@ import org.slf4j.LoggerFactory;
  * @desc
  */
 public class ServerChannelInitHandler extends ChannelInitializer {
-
-    Logger logger = LoggerFactory.getLogger(ServerChannelInitHandler.class);
-
 
     @Override
     protected void initChannel(Channel ch) throws Exception {

@@ -79,9 +79,10 @@ public class DefaultByteToMessageDecoder extends ByteToMessageDecoder {
             byteBuf.readBytes(bytes);
         }
 
-        Message message = HessianSerializerUtil.deserialize(bytes);
 
-        logger.info("接受到消息:{}", message);
+        Message message = new Message(tag,commandCode,version,length,bytes);
+
+        logger.info("[收到消息] 二进制转义: commandCode({}),version:({})", message.getCommandCode(),message.getVersion());
         list.add(message);
     }
 

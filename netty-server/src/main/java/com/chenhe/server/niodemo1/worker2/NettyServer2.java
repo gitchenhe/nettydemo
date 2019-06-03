@@ -1,4 +1,4 @@
-package com.chenhe.server.worker2;
+package com.chenhe.server.niodemo1.worker2;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -41,10 +41,10 @@ public class NettyServer2 {
             logger.info("服务启动成功,端口号:{}", port);
 
             //另起一个线程,监听所有客户端连接
-            new Thread(new ClientAcceptListener2(serverSelector, clientSelector)).start();
+            new Thread(new com.chenhe.server.worker2.ClientAcceptListener2(serverSelector, clientSelector)).start();
 
             //在其一个线程,监听客户端读入的程序
-            new Thread(new ClientReadListener2(clientSelector,clientChannel)).start();
+            new Thread(new com.chenhe.server.worker2.ClientReadListener2(clientSelector, clientChannel)).start();
 
         } catch (IOException e) {
             logger.error("服务启动异常", e);

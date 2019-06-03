@@ -39,6 +39,8 @@ public class MessageToObjectDecoder extends MessageToMessageDecoder<Message> {
         }
         result = HessianSerializerUtil.deserialize(message.getContent());
         logger.debug("[收到消息] 解析消息:({}),{}", result.getClass(), result);
+
+        list.add(result);
     }
 
     public Object getResult() {

@@ -5,6 +5,8 @@ import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author chenhe
@@ -12,6 +14,7 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
  * @desc
  */
 public class NettyDemo2Server {
+
     static int port = 1234;
 
     public static void main(String[] args) throws InterruptedException {
